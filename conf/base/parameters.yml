@@ -1,0 +1,18 @@
+##### gojek projects ####
+on_column_1: order_id
+how_column_1: left 
+target_column: is_completed
+test_size: 0.2
+target_train: train
+unique_columns:
+    - order_id
+    - trip_distance
+    - pickup_latitude
+    - pickup_longitude
+features:
+    - trip_distance
+    - driver_distance
+    - event_hour
+    - driver_gps_accuracy
+    - num_of_completed_driver
+

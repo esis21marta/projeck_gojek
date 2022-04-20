@@ -1,0 +1,50 @@
+# --index-url https://cicd-jfrog.telkomsel.co.id/artifactory/api/pypi/tsel-python-remote/simple
+# --extra-index-url https://cicd-jfrog.telkomsel.co.id/artifactory/api/pypi/tsel-python-local/simple
+# --trusted-host cicd-jfrog.telkomsel.co.id
+attrs==19.3.0
+autoflake>=1.4.0
+bandit==1.6.2
+black>=19.10b0
+catboost==0.20.2
+category_encoders==2.2.2
+causalml==0.7.1
+cvxpy==1.1.1
+cx-Oracle==8.0.0
+deprecated==1.2.10
+fs==2.4.11
+hdfs==2.5.8
+imbalanced-learn==0.6.2
+ipython>=7.0.0, <8.0
+isort>=4.3.21
+jupyter>=1.0.0, <2.0
+jupyterlab==0.31.1
+kedro-viz==3.1.0
+kedro[docs, spark, pandas.CSVDataSet, pandas.SQLTableDataSet, matplotlib, yaml]==0.16.4
+lightgbm==2.3.1
+nbstripout==0.3.3
+optbinning==0.6.0
+pai==0.50.0
+pandas==0.25.1
+pre-commit-hooks==3.1.0
+pre-commit==2.6.0
+prince==0.6.3
+pyarrow==0.15.1
+pypandoc==1.4  # Required for pyspark, has to be installed manually due to resolution error
+pyspark-stubs==2.4.0.post8
+pyspark==2.4.4
+pytest-cov>=2.5, <2.10
+pytest-mock>=1.7.1,<2.0
+pytest>=3.4, <4.0
+schema>=0.7.2
+seaborn==0.10
+shap==0.35.0
+wheel==0.32.2
+xgboost==0.90
+# This is pinned below v11 because
+# GE depends on a version of dateutil
+# that will conflict with a pinned PAI dep
+great-expectations>=0.10.0, <0.11
+lifelines==0.25.2
+pysftp>=0.2.9
+psycopg2-binary==2.8.5
+croniter==0.3.34

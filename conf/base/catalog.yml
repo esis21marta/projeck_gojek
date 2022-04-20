@@ -1,0 +1,67 @@
+# rfm_imei_handset:
+#   type: src.dmp.io.spark_hive_dataset.SparkHiveDataSet
+#   database: dbi_bb
+#   table: imei_handset_202011
+# dmp_aggregation:
+#   type: src.dmp.io.spark_data_set.SparkDataSet
+#   filepath: hdfs:///data/landing/gx_pnt/mck_dmp_pipeline/01_aggregation/recharge/chg_pkg_prchse_weekly.parquet
+#   save_args:
+#     mode: overwrite
+# dmp_aggregation:
+#   type: spark.SparkDataSet
+#   filepath: hdfs:///data/landing/gx_pnt/mck_dmp_pipeline/01_aggregation/recharge/chg_pkg_prchse_weekly.parquet
+#   save_args:
+#     mode: overwrite
+#parquet
+rfm_bde_ses_segmentation_selected_low_downsampled_pandas:
+  type: pandas.ParquetDataSet
+  filepath: data/ses/temp/bde_ses_segmentation_selected_low_downsampled.parquet
+#### 01_raw ####
+booking_log:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/booking_log.csv
+participant_log:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/participant_log.csv
+test_data:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/test_data.csv
+#### 02_intermediate ####
+booking_log_clean:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/booking_log_clean.csv
+  # save_args:
+  #   mode: overwrite
+participant_log_clean:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/participant_log_clean.csv
+  # save_args:
+  #   mode: overwrite
+#### 03_primary ####    
+dataset:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/dataset.csv
+dataset_distance:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/dataset_distance.csv
+dataset_distance_geopy:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/dataset_distance_geopy.csv
+dataset_hours:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/dataset_hours.csv
+#### 04_feature ####
+transformed_dataset:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/transformed_dataset.csv
+#### 05_model ####
+model_pickle:
+  type: pickle.PickleDataSet
+  filepath: data/05_model/saved_model.pickle
+#### 06_submissions ####
+metrics_auc:
+  type: json.JSONDataSet
+  filepath: data/06_submissions/metrics.json
+results:
+  type: pandas.CSVDataSet
+  filepath: data/06_submissions/results.csv
